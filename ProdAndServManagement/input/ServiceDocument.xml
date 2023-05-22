@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ServiceManagers>
+	<ServiceManager>
+		<services>
+			<service>
+				<Name>Serviciu 1 manager 0</Name>
+				<InternalCode>0000001</InternalCode>
+				<Price>25.49</Price>
+			</service>
+			<service>
+				<Name>Serviciu 2 manager 0</Name>
+				<InternalCode>0000002</InternalCode>
+				<Price>19.49</Price>
+			</service>
+		</services>
+		<serviceCounter>2</serviceCounter>
+		<managerId>0</managerId>
+	</ServiceManager>
+	<ServiceManager>
+		<services>
+			<service>
+				<Name>Serviciu 1 manager 1</Name>
+				<InternalCode>0000001</InternalCode>
+				<Price>25.66</Price>
+			</service>
+			<service>
+				<Name>Serviciu 2 manager 1</Name>
+				<InternalCode>0000002</InternalCode>
+				<Price>49.99</Price>
+			</service>
+		</services>
+		<serviceCounter>2</serviceCounter>
+		<managerId>1</managerId>
+	</ServiceManager>
+</ServiceManagers>

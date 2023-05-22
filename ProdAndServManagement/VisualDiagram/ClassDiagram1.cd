@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProdAndServManagement.utils.GeneralUtils" Collapsed="true">
+    <Position X="19.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>utils\GeneralUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.utils.JsonUtils" Collapsed="true">
+    <Position X="17.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>utils\JsonUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.utils.XmlUtils" Collapsed="true">
+    <Position X="16" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEACAAAABAAAIAAAACAAAAAAAAE=</HashCode>
+      <FileName>utils\XmlUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.Services.Service" Collapsed="true">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAgAAAAAAAAAAAAIAAAABAAAAAAAA=</HashCode>
+      <FileName>Services\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.Products.Product" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAgAAAAAAAAAAQAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Products\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.Packages.Package" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAgAACEgAABAAAAIAAAAAAAAAACAA=</HashCode>
+      <FileName>Packages\Package.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.AbstractClasses.AbstractObjectManagerBuilder&lt;T&gt;" Collapsed="true">
+    <Position X="10.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAABAAAAAAAAAAgAAAAAAACSIAAAAAAAQAAAAIAAg=</HashCode>
+      <FileName>AbstractClasses\AbstractObjectManagerBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.AbstractClasses.AbstractObjectBuilder&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAggAAAkAAAAAQAAAAAAIAAAABAAAAAAAA=</HashCode>
+      <FileName>AbstractClasses\AbstractObjectBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProdAndServManagement.Packages.Manager.PackageManager" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Packages\Manager\PackageManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.Products.Manager.ProductManager" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Products\Manager\ProductManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProdAndServManagement.Services.Manager.ServiceManager" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Services\Manager\ServiceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ProdAndServManagement.Interfaces.IPackageable" Collapsed="true">
+    <Position X="14.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPackageable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
