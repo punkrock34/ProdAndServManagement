@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ProdAndServManagement/Data/PackageManagers.json
+/ProdAndServManagement/Data/Packages.xml
+/ProdAndServManagement/Data/ProductManagers.json
+/ProdAndServManagement/Data/Products.xml
+/ProdAndServManagement/Data/ServiceManagers.json
+/ProdAndServManagement/Data/Services.xml
