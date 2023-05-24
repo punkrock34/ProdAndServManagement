@@ -19,8 +19,8 @@ namespace ProdAndServManagement.utils
 
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings
             {
-                Indent = prettySerialize, // Enable indentation if prettySerialize is true
-                IndentChars = "\t" // Set the indentation character(s) to use, such as tab (\t)
+                Indent = prettySerialize,
+                IndentChars = "\t"
             };
 
             using (XmlWriter xmlWriter = XmlWriter.Create(filePath, xmlWriterSettings))

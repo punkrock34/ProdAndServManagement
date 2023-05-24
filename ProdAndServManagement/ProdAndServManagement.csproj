@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="input\ProductDocument.xml" />
-    <None Remove="input\ServiceDocument.xml" />
+    <None Remove="Data\ProductDocument.xml" />
+    <None Remove="Data\ServiceDocument.xml" />
     <None Remove="Products\Manager\ProductManager.cs~RF93d220d6.TMP" />
   </ItemGroup>
 
@@ -22,10 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="input\ProductDocument.xml">
+    <Resource Include="Data\ProductDocument.xml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="input\ServiceDocument.xml">
+    <Resource Include="Data\ServiceDocument.xml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -2,7 +2,6 @@
 using ProdAndServManagement.AbstractClasses;
 using ProdAndServManagement.Packages;
 using System.Runtime.Serialization;
-using System.Xml.Serialization;
 
 namespace ProdAndServManagement.Services
 {

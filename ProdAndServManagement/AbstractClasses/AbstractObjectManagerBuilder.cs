@@ -1,7 +1,4 @@
-﻿using ProdAndServManagement.Interfaces;
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-using System.Xml;
+﻿using System.Runtime.Serialization;
 
 namespace ProdAndServManagement.AbstractClasses
 {
@@ -64,14 +61,12 @@ namespace ProdAndServManagement.AbstractClasses
 
         public string ObjectManagerDescription()
         {
-            //check if products in empty and return none
             if (objects == null || objectCounter == 0)
             {
                 return "For "+ typeof(T) +" manager with ID: " + managerId +
                     "\nWe don't have any products!\n";
             }
 
-            //get manager for current list of products
             string objectManagerElements = "[\n";
 
             foreach(T? obj in objects)
@@ -81,14 +76,7 @@ namespace ProdAndServManagement.AbstractClasses
 
             objectManagerElements += "\n]";
 
-            //create json file as well
-            string filePath = "..\\..\\..\\json_files\\";
-
             string classTypeName = typeof(T).Name.ToLower();
-
-            string fileName = typeof(T).Name.ToLower()+"_manager_" + managerId + ".json";
-
-            File.WriteAllText(filePath + fileName, objectManagerElements);
 
             return "For "+classTypeName+" manager with ID: " + managerId +
                     "\nWe got "+classTypeName+"s: " + objectManagerElements +

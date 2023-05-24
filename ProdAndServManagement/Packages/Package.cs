@@ -2,7 +2,6 @@
 using ProdAndServManagement.Interfaces;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
-using System.Xml.Serialization;
 
 namespace ProdAndServManagement.Packages
 {

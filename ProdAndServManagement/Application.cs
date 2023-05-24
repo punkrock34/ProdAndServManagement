@@ -1,12 +1,5 @@
 ﻿using ProdAndServManagement.AbstractClasses;
-using ProdAndServManagement.Packages;
-using ProdAndServManagement.Packages.Manager;
-using ProdAndServManagement.Products;
-using ProdAndServManagement.Products.Manager;
-using ProdAndServManagement.Services;
-using ProdAndServManagement.Services.Manager;
 using ProdAndServManagement.utils;
-using System.Xml;
 
 namespace ProdAndServManagement
 {

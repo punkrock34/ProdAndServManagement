@@ -1,8 +1,6 @@
 ﻿using ProdAndServManagement.AbstractClasses;
-using ProdAndServManagement.utils;
 using System.Globalization;
 using System.Runtime.Serialization;
-using System.Xml;
 
 namespace ProdAndServManagement.Services.Manager
 {

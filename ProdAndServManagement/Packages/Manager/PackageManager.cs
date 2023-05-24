@@ -1,8 +1,6 @@
 ﻿using ProdAndServManagement.AbstractClasses;
-using System;
 using System.Globalization;
 using System.Runtime.Serialization;
-using System.Xml;
 
 namespace ProdAndServManagement.Packages.Manager
 {

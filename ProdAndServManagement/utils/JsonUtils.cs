@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Runtime.Serialization.Json;
 using System.Text.Json;
 
 namespace ProdAndServManagement.utils
@@ -8,7 +7,7 @@ namespace ProdAndServManagement.utils
     {
         public static void SerializeAsJson<T>(T obj, string filePath, bool prettySerialize = false)
         {
-            Formatting formatting = prettySerialize ? Formatting.Indented : Formatting.None;
+            Formatting formatting = prettySerialize ? Formatting.Indented : Formatting.None; // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Formatting.htm
 
             using (StreamWriter streamWriter = new StreamWriter(filePath))
             {
