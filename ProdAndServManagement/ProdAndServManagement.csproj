@@ -8,13 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\ProductDocument.xml" />
-    <None Remove="Data\ServiceDocument.xml" />
-    <None Remove="Products\Manager\ProductManager.cs~RF93d220d6.TMP" />
+    <Compile Remove="json_files\**" />
+    <EmbeddedResource Remove="json_files\**" />
+    <None Remove="json_files\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="json_files\" />
+    <None Remove="Data\ProductDocument.xml" />
+    <None Remove="Data\ServiceDocument.xml" />
+    <None Remove="Products\Manager\ProductManager.cs~RF93d220d6.TMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,15 +30,6 @@
     <Resource Include="Data\ServiceDocument.xml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="json_files\product_manager_0.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="json_files\product_manager_1.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
