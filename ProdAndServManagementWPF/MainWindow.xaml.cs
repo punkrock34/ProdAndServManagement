@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using ProdAndServManagementWPF.Windows;
+using System.Windows.Controls;
 
 namespace WpfApplication
 {
@@ -10,25 +10,28 @@ namespace WpfApplication
             InitializeComponent();
         }
 
-        private void ManagersButton_Click(object sender, RoutedEventArgs e)
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            // Open the ManagersWindow
-            ManagersWindow managersWindow = new ManagersWindow();
-            managersWindow.Show();
-        }
-
-        private void ObjectsButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Open the ObjectsWindow
-            ObjectsWindow objectsWindow = new ObjectsWindow();
-            objectsWindow.Show();
+            // Handle the Home button click event
+            // Add your code here
         }
 
         private void PackagesButton_Click(object sender, RoutedEventArgs e)
         {
-            // Open the PackagesWindow
-            PackagesWindow packagesWindow = new PackagesWindow();
-            packagesWindow.Show();
+            // Handle the Packages button click event
+            // Add your code here
+        }
+
+        private void ServicesButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Handle the Services button click event
+            // Add your code here
+        }
+
+        private void ProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Handle the Products button click event
+            // Add your code here
         }
     }
 }
