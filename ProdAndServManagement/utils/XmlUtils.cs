@@ -15,7 +15,11 @@ namespace ProdAndServManagement.utils
 
         public static void SerializeAsXml<T>(T obj, string filePath, bool prettySerialize = false)
         {
-            DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(T));
+            DataContractSerializerSettings settings = new DataContractSerializerSettings()
+            {
+                KnownTypes = GeneralUtils.GetKnownTypes(),
+            };
+            DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(T), settings);
 
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings
             {
@@ -32,7 +36,7 @@ namespace ProdAndServManagement.utils
 
         public static T? DeserializeFromXml<T>(string filePath)
         {
-            DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(T));
+            DataContractSerializer dataContractSerializer = new DataContractSerializer(typeof(T), GeneralUtils.GetKnownTypes());
 
             using (XmlReader xmlReader = XmlReader.Create(filePath))
             {

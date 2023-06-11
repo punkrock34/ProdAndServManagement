@@ -77,7 +77,7 @@ namespace ProdAndServManagement
 
             try
             {
-                XmlUtils.SerializeAsXml(objectList, PathToXmlFile, true);
+                XmlUtils.SerializeAsXml(objectList, PathToXmlFile);
                 return true;
             }
             catch (Exception ex)
@@ -124,7 +124,7 @@ namespace ProdAndServManagement
 
             try
             {
-                JsonUtils.SerializeAsJson(managerList, PathToJsonFile, true);
+                JsonUtils.SerializeAsJson(managerList, PathToJsonFile);
                 return true;
             }
             catch

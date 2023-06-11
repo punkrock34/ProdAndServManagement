@@ -1,41 +1,46 @@
-﻿using Newtonsoft.Json;
+﻿using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 using System.Text.Json;
 
 namespace ProdAndServManagement.utils
 {
     public static class JsonUtils
     {
-        public static void SerializeAsJson<T>(T obj, string filePath, bool prettySerialize = false)
+        public static void SerializeAsJson<T>(T obj, string filePath)
         {
-            Formatting formatting = prettySerialize ? Formatting.Indented : Formatting.None; // https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Formatting.htm
-
-            JsonSerializerSettings settings = new JsonSerializerSettings()
+            DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings()
             {
-                Formatting = formatting
+                UseSimpleDictionaryFormat = true,
+                KnownTypes = GeneralUtils.GetKnownTypes(),
+                EmitTypeInformation = EmitTypeInformation.AsNeeded,
+
             };
+
+            DataContractJsonSerializer dataContractJsonSerializer = new DataContractJsonSerializer(typeof(T), settings);
 
             using (StreamWriter streamWriter = new StreamWriter(filePath))
             {
-                string json = JsonConvert.SerializeObject(obj, settings);
-                streamWriter.Write(json);
+                try
+                {
+                    dataContractJsonSerializer.WriteObject(streamWriter.BaseStream, obj);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error while trying to serialize JSON object!");
+                }
             }
         }
 
 
         public static T? DeserializeFromJson<T>(string filePath)
         {
+            DataContractJsonSerializer dataContractJsonSerializer = new DataContractJsonSerializer(typeof(T), GeneralUtils.GetKnownTypes());
+
             using (StreamReader streamReader = new StreamReader(filePath))
             {
                 try
                 {
-                    string json = streamReader.ReadToEnd();
-
-                    JsonSerializerSettings settings = new JsonSerializerSettings
-                    {
-                        TypeNameHandling = TypeNameHandling.Auto
-                    };
-
-                    return JsonConvert.DeserializeObject<T>(json, settings);
+                    return (T)dataContractJsonSerializer.ReadObject(streamReader.BaseStream);
                 }
                 catch (Exception ex)
                 {
