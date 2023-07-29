@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ProdAndServManagement.utils.GeneralUtils">
-    <Position X="19.5" Y="6.5" Width="1.5" />
+    <Position X="21.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>utils\GeneralUtils.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProdAndServManagement.utils.JsonUtils">
-    <Position X="17.75" Y="6.5" Width="1.5" />
+    <Position X="20" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>utils\JsonUtils.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProdAndServManagement.utils.XmlUtils">
-    <Position X="16" Y="6.5" Width="1.5" />
+    <Position X="18.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEACAAAABAAAIAAAACAAAAAAAAE=</HashCode>
       <FileName>utils\XmlUtils.cs</FileName>
@@ -32,7 +32,7 @@
   <Class Name="ProdAndServManagement.Products.Product">
     <Position X="3" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAgAAAAAAAAAAQAIAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAAAAgAAAAAAAAAAQAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Products\Product.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -40,21 +40,21 @@
   <Class Name="ProdAndServManagement.Packages.Package">
     <Position X="4.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAgAACEgAABAAAAIAAAAAAAAAACAA=</HashCode>
+      <HashCode>ABAAAAAAAAAxAAAAggASEgAABAAAAIAAAAAAAAAACAA=</HashCode>
       <FileName>Packages\Package.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProdAndServManagement.AbstractClasses.AbstractObjectManagerBuilder&lt;TObject&gt;">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAABAAAAAAAAAAgAAAAAAACSIAAIAAAAQAAAAIAAg=</HashCode>
+      <HashCode>AQAAgBAAAAAgAAAAgAAAAAAACSIAAIAAAAQAIAAIAAg=</HashCode>
       <FileName>AbstractClasses\AbstractObjectManagerBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProdAndServManagement.AbstractClasses.AbstractObjectBuilder&lt;TObject&gt;">
     <Position X="3" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAggAAAkAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAQAggAAAkgAAAAQAAAAAAIAAAABAAAAAAAA=</HashCode>
       <FileName>AbstractClasses\AbstractObjectBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -71,6 +71,7 @@
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Products\Manager\ProductManager.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProdAndServManagement.Services.Manager.ServiceManager">
     <Position X="9" Y="5.5" Width="1.5" />
@@ -78,12 +79,20 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
       <FileName>Services\Manager\ServiceManager.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="ProdAndServManagement.Interfaces.IPackageable">
-    <Position X="14.25" Y="6.5" Width="1.5" />
+    <Position X="16.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAgAAAAAgAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>Interfaces\IPackageable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProdAndServManagement.Interfaces.IFilterable&lt;TObject&gt;" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Interfaces\IFilterable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

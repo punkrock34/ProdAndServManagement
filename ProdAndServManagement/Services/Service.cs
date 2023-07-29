@@ -2,7 +2,6 @@
 using ProdAndServManagement.AbstractClasses;
 using ProdAndServManagement.Interfaces;
 using ProdAndServManagement.Packages;
-using ProdAndServManagement.Products;
 using System.Runtime.Serialization;
 
 namespace ProdAndServManagement.Services

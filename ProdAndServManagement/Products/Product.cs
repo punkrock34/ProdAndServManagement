@@ -1,6 +1,5 @@
 ﻿using ProdAndServManagement.AbstractClasses;
 using ProdAndServManagement.Interfaces;
-using ProdAndServManagement.Packages;
 using System.Runtime.Serialization;
 
 namespace ProdAndServManagement.Products
