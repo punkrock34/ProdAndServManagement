@@ -1,11 +1,12 @@
 ﻿using ProdAndServManagement.AbstractClasses;
+using ProdAndServManagement.Interfaces;
 using System.Globalization;
 using System.Runtime.Serialization;
 
 namespace ProdAndServManagement.Services.Manager
 {
     [DataContract(Name = "ServiceManager")]
-    internal class ServiceManager : AbstractObjectManagerBuilder<Service>
+    internal class ServiceManager : AbstractObjectManagerBuilder<Service>, IFilterable<Service>
     {
 
         public ServiceManager(List<Service>? objects, uint objectCounter, uint managerId) : base(objects, objectCounter, managerId)

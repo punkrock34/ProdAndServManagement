@@ -27,10 +27,17 @@ namespace ProdAndServManagement.utils
                 IndentChars = "\t"
             };
 
-            using (XmlWriter xmlWriter = XmlWriter.Create(filePath, xmlWriterSettings))
+            try
             {
-                dataContractSerializer.WriteObject(xmlWriter, obj);
+                using (XmlWriter xmlWriter = XmlWriter.Create(filePath, xmlWriterSettings))
+                {
+                    dataContractSerializer.WriteObject(xmlWriter, obj);
+                }
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Error while trying to serialize XML object of type: " + typeof(T).Name.ToString());
             }
+
         }
 
 
@@ -45,7 +52,7 @@ namespace ProdAndServManagement.utils
                     return (T)dataContractSerializer.ReadObject(xmlReader);
                 }catch(Exception ex)
                 {
-                    Console.WriteLine("Error while trying to deserialize XML object!");
+                    Console.WriteLine("Error while trying to deserialize XML object of type: " + typeof(T).Name.ToString());
                     return default(T);
                 }
             }

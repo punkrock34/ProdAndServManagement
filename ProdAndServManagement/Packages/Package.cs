@@ -8,10 +8,13 @@ namespace ProdAndServManagement.Packages
     internal class Package : AbstractObjectBuilder<Package>
     {
         [DataMember(Name = "Category")]
-        string Category { get; set; }
+        public string Category { get; set; }
 
         [DataMember(Name = "Packageables")]
         List<IPackageable>? packageablesObjects;
+
+        [DataMember(Name = "PackagePrice")]
+        decimal? PackagePrice = 0;
 
         public Package(uint id, string name, string internalCode, decimal price, string category) : base(id, name, internalCode, price)
         {
@@ -42,6 +45,28 @@ namespace ProdAndServManagement.Packages
             packageablesObjects.Add(packageable);
         }
 
+        public void RemoveObjectFromPackage(IPackageable packageable)
+        {
+            packageablesObjects = GetPackageables();
+            packageablesObjects.Remove(packageable);
+        }
+
+        public void AddToPackagePrice(decimal? price)
+        {
+            if(price == null) throw new ArgumentNullException(nameof(price));
+
+            PackagePrice += price;
+            
+        }
+        public void RemoveFromPackagePrice(decimal? price)
+        {
+            if (price == null) throw new ArgumentNullException(nameof(price));
+
+            PackagePrice -= price;
+        }
+
+        public decimal GetPackagePrice() => PackagePrice ?? 0;
+
         public override string Description()
         {
             string? packageDescription = "{\n\"" + ID + "\":[\n";
@@ -57,7 +82,8 @@ namespace ProdAndServManagement.Packages
 
             packageDescription += "\"PackageName\":\"" + Name + "\",\n";
             packageDescription += "\"PackageInternalCode\":\"" + InternalCode + "\",\n";
-            packageDescription += "\"PackageCategory\":\"" + Category + "\"\n}";
+            packageDescription += "\"PackageCategory\":\"" + Category + "\"\n";
+            packageDescription += "\"PackagePrice\":\"" + PackagePrice + "\"\n}";
 
             return packageDescription;
         }

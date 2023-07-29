@@ -2,6 +2,7 @@
 using ProdAndServManagement.AbstractClasses;
 using ProdAndServManagement.Interfaces;
 using ProdAndServManagement.Packages;
+using ProdAndServManagement.Products;
 using System.Runtime.Serialization;
 
 namespace ProdAndServManagement.Services
@@ -24,9 +25,9 @@ namespace ProdAndServManagement.Services
             return "\t{\"ID\": " + ID + ", \"Name\": \"" + Name + "\", \"InternalCode\": \"" + InternalCode + "\", \"Price\": \"" + Price + "\"}";
         }
 
-        public override bool Equals(Service obj) => obj.Name == Name && obj.InternalCode == InternalCode;
+        public override bool Equals(Service? obj) => obj != null && obj.Name == Name && obj.InternalCode == InternalCode;
 
-        public bool CanAddToPackage(Package? package)
+        public override bool CanAddToPackage(Package? package)
         {
             if(package == null || package.GetObjectCount(this) == 2) {
                 return false;

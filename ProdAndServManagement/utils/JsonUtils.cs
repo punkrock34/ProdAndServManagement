@@ -26,7 +26,7 @@ namespace ProdAndServManagement.utils
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error while trying to serialize JSON object!");
+                    Console.WriteLine("Error while trying to serialize JSON object of type: " + typeof(T).Name.ToString());
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace ProdAndServManagement.utils
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error while trying to deserialize JSON object!");
+                    Console.WriteLine("Error while trying to deserialize JSON object of type: " + typeof(T).Name.ToString());
                     return default(T);
                 }
             }

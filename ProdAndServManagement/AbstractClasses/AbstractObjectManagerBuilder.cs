@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using System.Xml.Linq;
 
 namespace ProdAndServManagement.AbstractClasses
 {
@@ -42,9 +43,9 @@ namespace ProdAndServManagement.AbstractClasses
 
         public List<TObject> GetObjects()
         {
-            if (this.objects == null) return new List<TObject>();
+            if (objects == null) return new List<TObject>();
 
-            return this.objects;
+            return objects;
         }
 
         public uint GenerateRandomId()
@@ -57,6 +58,58 @@ namespace ProdAndServManagement.AbstractClasses
             uint randomId = (uint)random.Next(1 << 30);
 
             return randomId;
+        }
+
+        public virtual List<TObject> FilterByPrice(decimal? minPrice, decimal? maxPrice)
+        {
+            List<TObject> filteredObjects = new List<TObject>();
+            List<TObject> objects = GetObjects();
+
+            if (minPrice < 0 || minPrice == null) {
+                Console.WriteLine("Error minPrice is invalid! must be positive number");
+                return filteredObjects;
+            }
+
+            if(maxPrice < minPrice || maxPrice == null) {
+                Console.WriteLine("Error maxPrice is invalid! must be positive number and bigger than minPrice");
+                return filteredObjects;
+            }
+
+            filteredObjects = objects.Where(obj => obj.Price >= minPrice && obj.Price <= maxPrice).ToList();
+
+            return filteredObjects;
+        }
+
+        public virtual List<TObject> FilterByName(string? name)
+        {
+            List<TObject> filteredObjects = new List<TObject>();
+            List<TObject> objects = GetObjects();
+
+            if (string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("Error Name is invalid!");
+                return filteredObjects;
+            }
+
+            filteredObjects = objects.Where(obj => !string.IsNullOrEmpty(obj.Name) && obj.Name.Contains(name)).ToList();
+
+            return filteredObjects;
+        }
+
+        public virtual List<TObject> FilterByInternalCode(string? internalCode)
+        {
+            List<TObject> filteredObjects = new List<TObject>();
+            List<TObject> objects = GetObjects();
+
+            if (string.IsNullOrEmpty(internalCode))
+            {
+                Console.WriteLine("Error InternalCode is invalid!");
+                return filteredObjects;
+            }
+
+            filteredObjects = objects.Where(obj => !string.IsNullOrEmpty(obj.InternalCode) && obj.InternalCode == internalCode).ToList();
+
+            return filteredObjects;
         }
 
         public string ObjectManagerDescription()

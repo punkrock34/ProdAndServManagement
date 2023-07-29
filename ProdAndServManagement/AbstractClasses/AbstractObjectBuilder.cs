@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using ProdAndServManagement.Packages;
+using System.Runtime.Serialization;
 
 namespace ProdAndServManagement.AbstractClasses
 {
@@ -26,6 +27,43 @@ namespace ProdAndServManagement.AbstractClasses
         public abstract string Description();
 
         public abstract bool Equals(TObject? obj);
+
+        public virtual bool CanAddToPackage(Package? package)
+        {
+            if (package == null || package.GetObjectCount(this) == 1)
+                return false;
+            return true;
+        }
+        public virtual bool AddToPackagePrice(Package package)
+        {
+            if (package == null) { return false; }
+
+            try
+            {
+                package.AddToPackagePrice(Price);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
+
+        public virtual bool RemoveFromPackagePrice(Package package)
+        {
+            if (package == null) { return false; }
+            try
+            {
+                package.RemoveFromPackagePrice(Price);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+        }
 
         public override int GetHashCode()
         {

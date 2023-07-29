@@ -25,14 +25,7 @@ namespace ProdAndServManagement.Products
             return "\t{\"ID\": " + ID + ", \"Name\": \"" + Name + "\", \"InternalCode\": \"" + InternalCode + "\", \"Producer\": \"" + Producer + "\", \"Price\":  \"" + Price + "\"}";
         }
 
-        public override bool Equals(Product? obj) => obj.Name == Name && obj.InternalCode == InternalCode;
-        public bool CanAddToPackage(Package? package)
-        {
-            if (package == null || package.GetObjectCount(this) == 1)
-                return false;
-
-            return true;
-        }
+        public override bool Equals(Product? obj) => obj != null && obj.Name == Name && obj.InternalCode == InternalCode;
 
         public override int GetHashCode()
         {

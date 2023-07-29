@@ -88,6 +88,7 @@ foreach (Package tempPackage in tempPackages)
         if (tempProduct.CanAddToPackage(tempPackage))
         {
             tempPackage.AddObjectToPackage(tempProduct);
+            tempPackage.AddToPackagePrice(tempProduct.Price);
             productIndex++;
         }
     }
@@ -101,6 +102,7 @@ foreach (Package tempPackage in tempPackages)
         if (tempService.CanAddToPackage(tempPackage))
         {
             tempPackage.AddObjectToPackage(tempService);
+            tempPackage.AddToPackagePrice(tempService.Price);
             serviceIndex++;
         }
     }
