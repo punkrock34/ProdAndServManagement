@@ -33,7 +33,8 @@ namespace ProdAndServManagement.utils
                 {
                     dataContractSerializer.WriteObject(xmlWriter, obj);
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Error while trying to serialize XML object of type: " + typeof(T).Name.ToString());
             }
@@ -50,7 +51,8 @@ namespace ProdAndServManagement.utils
                 try
                 {
                     return (T)dataContractSerializer.ReadObject(xmlReader);
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Console.WriteLine("Error while trying to deserialize XML object of type: " + typeof(T).Name.ToString());
                     return default(T);
@@ -68,7 +70,7 @@ namespace ProdAndServManagement.utils
         public static XmlNodeList? GetXmlInnerNodeList(XmlNode node, string tagName)
         {
             XmlNodeList? childNodeList = node.SelectNodes("descendant::" + tagName);
-            if(childNodeList == null)
+            if (childNodeList == null)
             {
                 Console.WriteLine("Invalid tagName!");
                 return null;
@@ -77,9 +79,9 @@ namespace ProdAndServManagement.utils
             return childNodeList;
         }
 
-        public static XmlNodeList? GetXmlInnerNodesByXPath(XmlDocument xmlDocument,string tagName)
+        public static XmlNodeList? GetXmlInnerNodesByXPath(XmlDocument xmlDocument, string tagName)
         {
-            if(xmlDocument == null || string.IsNullOrEmpty(tagName))
+            if (xmlDocument == null || string.IsNullOrEmpty(tagName))
             {
                 Console.WriteLine("Invalid xmlDocument or tagName!");
                 return null;
@@ -87,7 +89,7 @@ namespace ProdAndServManagement.utils
 
             XmlNodeList? nodes = xmlDocument.SelectNodes("descendant::" + tagName);
 
-            if(nodes == null)
+            if (nodes == null)
             {
                 Console.WriteLine("Invalid tagName!");
                 return null;

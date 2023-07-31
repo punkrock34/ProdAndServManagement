@@ -23,14 +23,14 @@ namespace ProdAndServManagement.Packages
 
         public List<IPackageable> GetPackageables()
         {
-            if(packageablesObjects == null) return new List<IPackageable>();
+            if (packageablesObjects == null) return new List<IPackageable>();
 
             return packageablesObjects;
         }
 
         public int GetObjectCount(object? packageType)
         {
-            if(packageType == null) return 0;
+            if (packageType == null) return 0;
 
             Type type = packageType.GetType();
 
@@ -53,10 +53,10 @@ namespace ProdAndServManagement.Packages
 
         public void AddToPackagePrice(decimal? price)
         {
-            if(price == null) throw new ArgumentNullException(nameof(price));
+            if (price == null) throw new ArgumentNullException(nameof(price));
 
             PackagePrice += price;
-            
+
         }
         public void RemoveFromPackagePrice(decimal? price)
         {

@@ -18,7 +18,7 @@ namespace ProdAndServManagement.Services.Manager
 
         public void AddNewService(string? Name, string? InternalCode, string? Price)
         {
-            if(string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(InternalCode) || string.IsNullOrEmpty(Price))
+            if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(InternalCode) || string.IsNullOrEmpty(Price))
             {
                 Console.WriteLine("Invalid service, Required parameters are: Name, InternalCode");
                 return;
@@ -35,7 +35,7 @@ namespace ProdAndServManagement.Services.Manager
             uint randId = GenerateRandomId();
 
             //generate random Id untill we find one unique
-            while (objects.Where(s => s.ID == randId).Any()) randId = GenerateRandomId(); 
+            while (objects.Where(s => s.ID == randId).Any()) randId = GenerateRandomId();
 
             Service newService = new Service(randId, Name, InternalCode, price);
 

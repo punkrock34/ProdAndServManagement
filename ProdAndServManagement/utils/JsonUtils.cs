@@ -1,34 +1,39 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Net;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Text.Json;
 
 namespace ProdAndServManagement.utils
 {
     public static class JsonUtils
     {
-        public static void SerializeAsJson<T>(T obj, string filePath)
+        public static void SerializeAsJson<T>(T obj, string filePath, bool prettySerialize = false)
         {
             DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings()
             {
                 UseSimpleDictionaryFormat = true,
                 KnownTypes = GeneralUtils.GetKnownTypes(),
                 EmitTypeInformation = EmitTypeInformation.AsNeeded,
-
+                
             };
 
             DataContractJsonSerializer dataContractJsonSerializer = new DataContractJsonSerializer(typeof(T), settings);
 
-            using (StreamWriter streamWriter = new StreamWriter(filePath))
+            using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 try
                 {
-                    dataContractJsonSerializer.WriteObject(streamWriter.BaseStream, obj);
-                }
-                catch (Exception ex)
+                    using (var writer = JsonReaderWriterFactory.CreateJsonWriter(stream, Encoding.UTF8, prettySerialize, prettySerialize)) {
+                        dataContractJsonSerializer.WriteObject(writer, obj);
+                        writer.Flush();
+                    }
+                } catch (Exception ex)
                 {
                     Console.WriteLine("Error while trying to serialize JSON object of type: " + typeof(T).Name.ToString());
                 }
             }
+            
         }
 
 

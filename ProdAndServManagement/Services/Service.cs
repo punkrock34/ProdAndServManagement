@@ -28,7 +28,8 @@ namespace ProdAndServManagement.Services
 
         public override bool CanAddToPackage(Package? package)
         {
-            if(package == null || package.GetObjectCount(this) == 2) {
+            if (package == null || package.GetObjectCount(this) == 2)
+            {
                 return false;
             }
 

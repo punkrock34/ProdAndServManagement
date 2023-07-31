@@ -10,14 +10,15 @@ namespace ProdAndServManagement.Products.Manager
     {
         public ProductManager(List<Product>? objects, uint objectCounter, uint managerId) : base(objects, objectCounter, managerId)
         {
-           
+
         }
 
         public ProductManager() { }
 
         public void AddNewProduct(string? Name, string? InternalCode, string? Producer, string? Price)
         {
-            if(string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(InternalCode) || string.IsNullOrEmpty(Producer) || string.IsNullOrEmpty(Price)) {
+            if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(InternalCode) || string.IsNullOrEmpty(Producer) || string.IsNullOrEmpty(Price))
+            {
                 Console.WriteLine("Invalid product, required parameters are: Name, InternalCode, Producer");
                 return;
             }
@@ -33,11 +34,11 @@ namespace ProdAndServManagement.Products.Manager
             uint randId = GenerateRandomId();
 
             //generate random Id untill we find one unique;
-            while(objects.Where(p => p.ID == randId).Any()) randId = GenerateRandomId();
+            while (objects.Where(p => p.ID == randId).Any()) randId = GenerateRandomId();
 
             Product newProduct = new Product(randId, Name, InternalCode, price, Producer);
 
-           if(!Equals(newProduct))
+            if (!Equals(newProduct))
             {
                 objects.Add(newProduct);
                 objectCounter = Convert.ToUInt32(objects.Count());

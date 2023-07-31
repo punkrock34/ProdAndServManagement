@@ -20,22 +20,22 @@ namespace ProdAndServManagement
             PathToJsonFile = pathToJsonFile;
         }
 
-        public void addManager(TManager manager)
+        public void AddManager(TManager manager)
         {
             managerList.Add(manager);
         }
 
-        public bool removeManager(TManager manager)
+        public bool RemoveManager(TManager manager)
         {
             return managerList.Remove(manager);
         }
 
-        public void addObject(TObject @object)
+        public void AddObject(TObject @object)
         {
             objectList.Add(@object);
         }
 
-        public bool removeObject(TObject @object)
+        public bool RemoveObject(TObject @object)
         {
             return objectList.Remove(@object);
         }
@@ -45,19 +45,18 @@ namespace ProdAndServManagement
             if (!GeneralUtils.CheckIfFileValid(PathToXmlFile))
                 return objectList;
 
-            if(!File.Exists(PathToXmlFile)) return objectList;
+            if (!File.Exists(PathToXmlFile)) return objectList;
 
             try
             {
                 List<TObject> tempObjects = XmlUtils.DeserializeFromXml<List<TObject>>(PathToXmlFile);
 
-                if(tempObjects == null) return objectList;
+                if (tempObjects == null) return objectList;
 
                 foreach (TObject tempObject in tempObjects)
                 {
 
                     if (objectList.Any(o => o.Equals(tempObject))) continue;
-
                     objectList.Add(tempObject);
                 }
 
@@ -74,6 +73,16 @@ namespace ProdAndServManagement
         {
             if (!GeneralUtils.CheckIfFileValid(PathToXmlFile))
                 return false;
+
+            foreach (TManager manager in managerList)
+            {
+                List<TObject> objects = manager.GetObjects();
+                foreach (TObject @object in objects)
+                {
+                    if(objectList.Any(o => !o.Equals(@object))) continue;
+                    objectList.Add(@object);
+                }
+            }
 
             try
             {
@@ -97,7 +106,7 @@ namespace ProdAndServManagement
             {
                 List<TManager>? tempManagers = JsonUtils.DeserializeFromJson<List<TManager>>(PathToJsonFile);
 
-                if(tempManagers == null) return managerList;
+                if (tempManagers == null) return managerList;
 
                 HashSet<uint> existingManagerIds = new HashSet<uint>(managerList.Select(m => m.managerId));
 
@@ -111,7 +120,9 @@ namespace ProdAndServManagement
 
                 return managerList;
 
-            } catch {
+            }
+            catch
+            {
                 Console.WriteLine("Error while trying to deserialize JSON");
                 return managerList;
             }
@@ -122,6 +133,16 @@ namespace ProdAndServManagement
             if (!GeneralUtils.CheckIfFileValid(PathToJsonFile))
                 return false;
 
+            foreach (TManager manager in managerList)
+            {
+                List<TObject> objects = manager.GetObjects();
+                foreach (TObject @object in objects)
+                {
+                    if (objectList.Any(o => !o.Equals(@object))) continue;
+                    objectList.Add(@object);
+                }
+            }
+
             try
             {
                 JsonUtils.SerializeAsJson(managerList, PathToJsonFile);
@@ -130,6 +151,44 @@ namespace ProdAndServManagement
             catch
             {
                 Console.WriteLine("Error while trying to serialize JSON");
+                return false;
+            }
+        }
+
+        public bool SetObjectsToTempDownloadFile(List<TObject> objectList, string DownloadPath, string FileExtDownload = "xml")
+        {
+            string TempDownloadFilePath = GeneralUtils.GetTempDownload(FileExtDownload);
+
+            try
+            {
+                XmlUtils.SerializeAsXml(objectList, TempDownloadFilePath, prettySerialize: true);
+                GeneralUtils.DownloadFile(TempDownloadFilePath, DownloadPath);
+
+                File.Delete(TempDownloadFilePath);
+                return true;
+            }
+            catch
+            {
+                Console.WriteLine("Error while trying to download File");
+                return false;
+            }
+        }
+
+        public bool SetObjectManagersToTempDownloadFile(List<TManager> managerList, string DownloadPath, string FileExtDownload = "json")
+        {
+            string TempDownloadFilePath = GeneralUtils.GetTempDownload(FileExtDownload);
+
+            try
+            {
+                JsonUtils.SerializeAsJson(managerList, TempDownloadFilePath, prettySerialize: true);
+                GeneralUtils.DownloadFile(TempDownloadFilePath, DownloadPath);
+
+                File.Delete(TempDownloadFilePath); 
+                return true;
+            }
+            catch
+            {
+                Console.WriteLine("Error while trying to download File");
                 return false;
             }
         }

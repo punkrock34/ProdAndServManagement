@@ -5,10 +5,19 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>image-3.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Page Remove=".xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="image-3.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProdAndServManagement\ProdAndServManagement.csproj" />
   </ItemGroup>
 
 </Project>

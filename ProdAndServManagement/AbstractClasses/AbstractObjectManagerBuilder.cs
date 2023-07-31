@@ -31,7 +31,7 @@ namespace ProdAndServManagement.AbstractClasses
 
         public void SetObjectCounter(int objectCounter)
         {
-            if(objectCounter < uint.MinValue)
+            if (objectCounter < uint.MinValue)
             {
                 Console.WriteLine("Counter can't be smaller than 0");
                 return;
@@ -49,7 +49,7 @@ namespace ProdAndServManagement.AbstractClasses
 
         public uint GenerateRandomId()
         {
-            if(random == null)
+            if (random == null)
             {
                 random = new Random();
             }
@@ -64,12 +64,14 @@ namespace ProdAndServManagement.AbstractClasses
             List<TObject> filteredObjects = new List<TObject>();
             List<TObject> objects = GetObjects();
 
-            if (minPrice < 0 || minPrice == null) {
+            if (minPrice < 0 || minPrice == null)
+            {
                 Console.WriteLine("Error minPrice is invalid! must be positive number");
                 return filteredObjects;
             }
 
-            if(maxPrice < minPrice || maxPrice == null) {
+            if (maxPrice < minPrice || maxPrice == null)
+            {
                 Console.WriteLine("Error maxPrice is invalid! must be positive number and bigger than minPrice");
                 return filteredObjects;
             }
@@ -115,13 +117,13 @@ namespace ProdAndServManagement.AbstractClasses
         {
             if (objects == null || objectCounter == 0)
             {
-                return "For "+ typeof(TObject) +" manager with ID: " + managerId +
+                return "For " + typeof(TObject) + " manager with ID: " + managerId +
                     "\nWe don't have any products!\n";
             }
 
             string objectManagerElements = "[\n";
 
-            foreach(TObject? obj in objects)
+            foreach (TObject? obj in objects)
             {
                 objectManagerElements += obj.Description() + (obj == objects.Last() ? "\n" : ",\n");
             }
@@ -130,15 +132,15 @@ namespace ProdAndServManagement.AbstractClasses
 
             string classTypeName = typeof(TObject).Name.ToLower();
 
-            return "For "+classTypeName+" manager with ID: " + managerId +
-                    "\nWe got "+classTypeName+"s: " + objectManagerElements +
-                    "\nTotal "+classTypeName+"s: " + objectCounter;
+            return "For " + classTypeName + " manager with ID: " + managerId +
+                    "\nWe got " + classTypeName + "s: " + objectManagerElements +
+                    "\nTotal " + classTypeName + "s: " + objectCounter;
         }
 
         //this used to be a override of Equals(object obj)
         //not anymore because serialization uses this automatically and sends loop of objects as TObject
         //if you need to have this overriden from the main class don't forget to handle where TObject is of type List<TObject>
-        public bool Equals(TObject? obj) 
+        public bool Equals(TObject? obj)
         {
 
             objects = GetObjects();

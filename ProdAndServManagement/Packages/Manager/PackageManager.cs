@@ -26,14 +26,15 @@ namespace ProdAndServManagement.Packages.Manager
             }
 
             objects = GetObjects();
-               
+
             uint randId = GenerateRandomId();
 
             while (objects.Where(p => p.ID == randId).Any()) randId = GenerateRandomId();
 
             Package newPackage = new Package(randId, Name, InternalCode, price, Category);
 
-            if(!Equals(newPackage)) {
+            if (!Equals(newPackage))
+            {
                 objects.Add(newPackage);
                 objectCounter = Convert.ToUInt32(objects.Count());
                 Console.WriteLine($"New Package with internal code {newPackage.InternalCode} added sucessfully!");
